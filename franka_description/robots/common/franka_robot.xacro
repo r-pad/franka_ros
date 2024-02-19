@@ -5,6 +5,8 @@
     <!-- Should a franka_gripper be mounted at the flange?" -->
     <xacro:arg name="hand" default="false" />
     <!-- Positional offset between $(arm_id)_hand -> $(arm_id)_hand_tcp [m]. Only used when hand:=true -->
+    <xacro:arg name="suction" default="false" />
+    <!-- Whether to include a suction gripper -->
     <xacro:arg name="tcp_xyz" default="0 0 0.1034" />
     <!-- Rotational offset between $(arm_id)_hand -> $(arm_id)_hand_tcp [rad]. Only used when hand:=true -->
     <xacro:arg name="tcp_rpy" default="0 0 0" />
@@ -28,6 +30,14 @@
           gazebo="$(arg gazebo)"
        />
     </xacro:if>
+
+    <xacro:if value="$(arg suction)">
+      <xacro:include filename="$(find franka_description)/robots/common/franka_suction.urdf.xacro"/>
+      <xacro:franka_suction
+	  path_prefix = "franka_description"
+	  parent="$(arg arm_id)_link8"
+      />
+      </xacro:if>
 
     <!-- Define additional Gazebo tags -->
     <xacro:if value="$(arg gazebo)">

@@ -3,7 +3,7 @@
 	name="schmalz_cobot_pump">
 
 	<xacro:property name="origin_xyz" value="0.0 0.0 0.0"/>
-	<xacro:property name="origin_rpy" value="3.1415 0.0 3.1415"/>
+	<xacro:property name="origin_rpy" value="3.1415 0.0 3.25"/>
 	<xacro:macro name="franka_suction" params="path_prefix parent">
 
 		<joint name="vacuum_joint8" type="fixed">

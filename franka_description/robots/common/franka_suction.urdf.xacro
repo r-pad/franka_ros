@@ -68,7 +68,7 @@
                         </collision>
 		</link>
 
-		<joint name="vacuum_joint11" tpe="fixed">
+		<joint name="vacuum_joint11" type="fixed">
 			<parent link="cylinder2"/>
                         <child link="referencePoint"/>
                         <origin xyz="0.0 0.0 -0.0125" rpy="0.0 0.0 0.0" />

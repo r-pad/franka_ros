@@ -3,7 +3,7 @@
 	name="schmalz_cobot_pump">
 
 	<xacro:property name="origin_xyz" value="0.0 0.0 0.0"/>
-	<xacro:property name="origin_rpy" value="0.0 0.0 0.0"/>
+	<xacro:property name="origin_rpy" value="3.1415 0.0 3.1415"/>
 	<xacro:macro name="franka_suction" params="path_prefix parent">
 
 		<joint name="vacuum_joint8" type="fixed">
@@ -14,23 +14,20 @@
 		<link name="vacuum">
 			<visual>
 				<geometry>
-					<mesh filename="package://${path_prefix}/robots/common/schmalz_cobot.stl"/>
+					<mesh filename="package://${path_prefix}/robots/common/schmalz_cobot.stl" scale="0.001 0.001 0.001"/>
 				</geometry>
 				<!-- might have to change this later if it looks weird in rviz-->
-				<origin xyz="${origin_xyz}" rpy="${origin_rpy}" />
 			</visual>
 			<collision>
 				<!-- if too slow change to cylinder -->
 				<geometry>
-					<mesh filename="package://${path_prefix}/robots/common/schmalz_cobot.stl"/>
+					<mesh filename="package://${path_prefix}/robots/common/schmalz_cobot.stl" scale="0.001 0.001 0.001"/>
                                 </geometry>
-				<origin xyz="${origin_xyz}" rpy="${origin_rpy}" />
 			</collision>
 			<inertial>
 				<!-- using cylinder to approximate, change if seems too incorrect -->
 				<mass value="0.775"/>
 				<inertia ixx="0.0016" ixy="0.0" ixz = "0.0" iyy="0.0016" iyz="0.0" izz="0.0009"/>
-				<origin xyz="${origin_xyz}" rpy="${origin_rpy}" />
 			</inertial>
 		</link>
 	</xacro:macro>
